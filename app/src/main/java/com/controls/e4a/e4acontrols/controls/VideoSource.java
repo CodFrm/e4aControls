@@ -3,12 +3,11 @@ package com.controls.e4a.e4acontrols.controls;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,6 +38,7 @@ public class VideoSource {
     private ImageView downloadBtn;
     private boolean isCollection;
     private OnActionListener actionListener;
+    private View contView;
 
     public VideoSource(Context context) {
         mContext = context;
@@ -46,22 +46,22 @@ public class VideoSource {
 
     public View create() {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.video_source_controls, null);
+        contView = inflater.inflate(R.layout.video_source_controls, null);
 
         RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(400, 100);
         rllp.width = ViewGroup.LayoutParams.MATCH_PARENT;
         rllp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 //        rllp.leftMargin = 0;
 //        rllp.topMargin = 0;
-        ((Activity) mContext).addContentView(view, rllp);
-        sourceList = (GridView) view.findViewById(R.id.source_list);
-        selectIcon = (ImageView) view.findViewById(R.id.select_icon);
-        showIcon = (ImageView) view.findViewById(R.id.show_icon);
-        collectionBtn = (ImageView) view.findViewById(R.id.collection);
-        shareBtn = (ImageView) view.findViewById(R.id.share);
-        downloadBtn = (ImageView) view.findViewById(R.id.download);
-        selectText = (TextView) view.findViewById(R.id.select_text);
-        selectLayout = (RelativeLayout) view.findViewById(R.id.source_list_show);
+        ((Activity) mContext).addContentView(contView, rllp);
+        sourceList = (GridView) contView.findViewById(R.id.source_list);
+        selectIcon = (ImageView) contView.findViewById(R.id.select_icon);
+        showIcon = (ImageView) contView.findViewById(R.id.show_icon);
+        collectionBtn = (ImageView) contView.findViewById(R.id.collection);
+        shareBtn = (ImageView) contView.findViewById(R.id.share);
+        downloadBtn = (ImageView) contView.findViewById(R.id.download);
+        selectText = (TextView) contView.findViewById(R.id.select_text);
+        selectLayout = (RelativeLayout) contView.findViewById(R.id.source_list_show);
         selectLayout.setVisibility(View.GONE);
         sourceArrayList = new ArrayList<Map<String, Object>>();
         simpleAdapter = new SimpleAdapter(mContext, sourceArrayList,
@@ -78,7 +78,7 @@ public class VideoSource {
                 return false;
             }
         });
-        ((LinearLayout) view.findViewById(R.id.show)).setOnClickListener(new View.OnClickListener() {
+        ((LinearLayout) contView.findViewById(R.id.show)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isShow) {
@@ -86,6 +86,7 @@ public class VideoSource {
                 } else {
                     showList();
                 }
+                actionListener.onAction(4);
             }
         });
         sourceList.setAdapter(simpleAdapter);
@@ -115,7 +116,7 @@ public class VideoSource {
                 actionListener.onAction(3);
             }
         });
-        return view;
+        return contView;
     }
 
     public boolean isCollection() {
@@ -158,10 +159,11 @@ public class VideoSource {
         sourceList.setSelection(i);
     }
 
-    public int addItem(String name, Bitmap bitmap) {
+    public int addItem(String name, String url, Bitmap bitmap) {
         Map<String, Object> item = new HashMap<String, Object>();
         item.put("image", bitmap);
         item.put("name", name);
+        item.put("url", url);
         sourceArrayList.add(item);
         return (sourceArrayList.size() - 1);
     }
@@ -169,6 +171,11 @@ public class VideoSource {
     public String getName(int i) {
         Map<String, Object> item = (Map<String, Object>) sourceList.getItemAtPosition(i);
         return (String) item.get("name");
+    }
+
+    public String getUrl(int i) {
+        Map<String, Object> item = (Map<String, Object>) sourceList.getItemAtPosition(i);
+        return (String) item.get("url");
     }
 
     public void remove(int i) {

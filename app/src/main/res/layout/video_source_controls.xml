@@ -87,11 +87,13 @@
         android:id="@+id/source_list_show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#fff"
         android:layout_below="@+id/select_source">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
+            android:layout_alignParentTop="true"
             android:background="#cacaca" />
 
         <GridView

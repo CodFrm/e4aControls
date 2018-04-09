@@ -27,10 +27,10 @@ public class VideoSourcePage extends AppCompatActivity {
         videoSource = new VideoSource(this);
         videoSource.create();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.collection);
-        videoSource.addItem("ceshi", bitmap);
-        videoSource.addItem("down", BitmapFactory.decodeResource(getResources(), R.drawable.download));
-        videoSource.addItem("测试", BitmapFactory.decodeResource(getResources(), R.drawable.share));
-        videoSource.addItem("tx", BitmapFactory.decodeResource(getResources(), R.drawable.txsp));
+        videoSource.addItem("ceshi","urkl", bitmap);
+        videoSource.addItem("down","urkl", BitmapFactory.decodeResource(getResources(), R.drawable.download));
+        videoSource.addItem("测试","urkl", BitmapFactory.decodeResource(getResources(), R.drawable.share));
+        videoSource.addItem("测试","urkl", BitmapFactory.decodeResource(getResources(), R.drawable.share));
         videoSource.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
