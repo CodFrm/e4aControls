@@ -6,11 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.controls.e4a.e4acontrols.MainActivity">
 
-    <Button
-        android:id="@+id/video_source"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="视频源"
-        android:onClick="checkVideoSourcePage"/>
-
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/video_source"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="0dp"
+            android:onClick="checkVideoSourcePage"
+            android:text="视频源" />
+        <Button
+            android:id="@+id/qq_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="100dp"
+            android:onClick="btnOnClick"
+            android:text="SQLite" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
