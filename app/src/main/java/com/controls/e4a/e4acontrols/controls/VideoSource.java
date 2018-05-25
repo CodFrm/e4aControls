@@ -157,6 +157,10 @@ public class VideoSource {
         selectIcon.setImageBitmap((Bitmap) item.get("image"));
         selectText.setText((String) item.get("name"));
         sourceList.setSelection(i);
+
+        selectText.requestLayout();
+        selectIcon.requestLayout();
+        sourceList.requestLayout();
     }
 
     public int addItem(String name, String url, Bitmap bitmap) {
@@ -165,6 +169,7 @@ public class VideoSource {
         item.put("name", name);
         item.put("url", url);
         sourceArrayList.add(item);
+        sourceList.requestLayout();
         return (sourceArrayList.size() - 1);
     }
 
@@ -184,6 +189,7 @@ public class VideoSource {
 
     public void removeAll() {
         sourceArrayList.removeAll(sourceArrayList);
+        hiddenList();
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {

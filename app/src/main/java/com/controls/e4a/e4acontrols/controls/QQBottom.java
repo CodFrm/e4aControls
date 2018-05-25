@@ -25,13 +25,22 @@ public class QQBottom {
 
         LinearLayout.LayoutParams rllp = new LinearLayout.LayoutParams(-1, -1);
         rllp.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        rllp.height = 120;
-//        rllp.leftMargin = 0;
-//        rllp.topMargin = 0;
+        rllp.height = 160;
         ((Activity) mContext).addContentView(contView, rllp);
 
-
         return contView;
+    }
+
+    public void setColor() {
 
     }
+
+    public void setActiveColor() {
+
+    }
+
+    public void addItem() {
+
+    }
+
 }
