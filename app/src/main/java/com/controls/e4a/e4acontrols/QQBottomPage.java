@@ -38,5 +38,7 @@ public class QQBottomPage extends AppCompatActivity {
                 BitmapFactory.decodeResource(getResources(), R.drawable.txsp),
                 BitmapFactory.decodeResource(getResources(), R.drawable.download)
         );
+
+
     }
 }

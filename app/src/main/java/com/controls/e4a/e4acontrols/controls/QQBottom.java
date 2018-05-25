@@ -31,6 +31,7 @@ public class QQBottom {
     private QQBottomItem activeQQBottomItem = null;
     private AdapterView.OnItemClickListener itemClickListener;
 
+
     public QQBottom(Context context) {
         mContext = context;
     }
@@ -75,6 +76,7 @@ public class QQBottom {
                 itemClickListener.onItemClick(null, view, qqBottomItem.getId(), 0);
             }
         });
+        contView.requestLayout();
         return items.size() - 1;
     }
 
@@ -82,7 +84,8 @@ public class QQBottom {
     public void remove(int index) {
         try {
             QQBottomItem v = (QQBottomItem) contView.findViewById(index);
-            v.removeAllViews();
+            ViewGroup p = (ViewGroup) v.getParent();
+            p.removeView(v);
             for (int i = index + 1; i < items.size(); i++) {
                 v = items.get(i);
                 v.setId(i - 1);
@@ -90,21 +93,24 @@ public class QQBottom {
         } catch (Exception e) {
 
         }
+        contView.requestLayout();
     }
 
     public void removeAll() {
-        try {
-            for (int i = 0; i < items.size(); i++) {
+        for (int i = 0; i < items.size(); i++) {
+            try {
                 QQBottomItem v = (QQBottomItem) contView.findViewById(i);
                 if (v == null) {
-                    return;
+                    continue;
                 }
-                v.removeAllViews();
-            }
-            items.clear();
-        } catch (Exception e) {
+                ViewGroup p = (ViewGroup) v.getParent();
+                p.removeView(v);
+            } catch (Exception e) {
 
+            }
         }
+        items.clear();
+        contView.requestLayout();
     }
 
     public void selectItem(int id) {
@@ -121,7 +127,7 @@ public class QQBottom {
         } catch (Exception e) {
 
         }
-
+        contView.requestLayout();
     }
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
