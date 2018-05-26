@@ -43,6 +43,10 @@ public class QQBottomItem extends RelativeLayout {
 
     }
 
+    public void setFontSize(int size) {
+        textCtrl.setTextSize(size);
+    }
+
     public void setActive(boolean active) {
         if (active) {
             textCtrl.setTextColor(activeColor);

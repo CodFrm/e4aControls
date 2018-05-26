@@ -5,13 +5,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.controls.e4a.e4acontrols.R;
 
@@ -22,6 +20,8 @@ public class QQBottom {
     private int color = Color.parseColor("#cccccc");
 
     private int activeColor = Color.parseColor("#000000");
+
+    private int fontSize = 12;
 
     private Context mContext;
     private View contView;
@@ -62,6 +62,7 @@ public class QQBottom {
         qqBottomItem.setLayoutParams(layoutParams);
         ((LinearLayout) contView).addView(qqBottomItem, layoutParams);
         items.add(qqBottomItem);
+        qqBottomItem.setFontSize(fontSize);
         qqBottomItem.setId(items.size() - 1);
         qqBottomItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,5 +133,9 @@ public class QQBottom {
 
     public void setOnItemClickListener(AdapterView.OnItemClickListener listener) {
         itemClickListener = listener;
+    }
+
+    public void setFontSize(int size) {
+        this.fontSize = size;
     }
 }
