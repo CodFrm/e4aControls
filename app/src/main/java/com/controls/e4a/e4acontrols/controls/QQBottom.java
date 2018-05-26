@@ -26,11 +26,17 @@ public class QQBottom {
     private Context mContext;
     private View contView;
 
+    private int img = 2, text = 3;
+
     private ArrayList<QQBottomItem> items = new ArrayList<>();
 
     private QQBottomItem activeQQBottomItem = null;
     private AdapterView.OnItemClickListener itemClickListener;
 
+    public void setWeights(int a, int b) {
+        img = a;
+        text = b;
+    }
 
     public QQBottom(Context context) {
         mContext = context;
@@ -63,6 +69,7 @@ public class QQBottom {
         ((LinearLayout) contView).addView(qqBottomItem, layoutParams);
         items.add(qqBottomItem);
         qqBottomItem.setFontSize(fontSize);
+        qqBottomItem.setProportion(img, this.text);
         qqBottomItem.setId(items.size() - 1);
         qqBottomItem.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -45,6 +46,15 @@ public class QQBottomItem extends RelativeLayout {
 
     public void setFontSize(int size) {
         textCtrl.setTextSize(size);
+    }
+
+    public void setProportion(int a, int b) {
+        LinearLayout.LayoutParams l = (LinearLayout.LayoutParams) textCtrl.getLayoutParams();
+        l.weight = b;
+        textCtrl.setLayoutParams(l);
+        l = (LinearLayout.LayoutParams) imgCtrl.getLayoutParams();
+        l.weight = a;
+        imgCtrl.setLayoutParams(l);
     }
 
     public void setActive(boolean active) {
