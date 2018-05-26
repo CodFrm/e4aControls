@@ -17,6 +17,7 @@ public class QQBottomPage extends AppCompatActivity {
         setContentView(R.layout.qq_bottom_page);
         qqBottom = new QQBottom(this);
         qqBottom.create();
+
         qqBottom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

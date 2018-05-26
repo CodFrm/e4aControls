@@ -2,19 +2,14 @@ package com.controls.e4a.e4acontrols.controls;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.support.annotation.Nullable;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.controls.e4a.e4acontrols.R;
 
-public class QQBottomItem extends RelativeLayout {
+public class QQBottomItem extends LinearLayout {
 
     private ImageView imgCtrl;
     private TextView textCtrl;
@@ -48,13 +43,10 @@ public class QQBottomItem extends RelativeLayout {
         textCtrl.setTextSize(size);
     }
 
-    public void setProportion(int a, int b) {
+    public void setHeight(int a) {
         LinearLayout.LayoutParams l = (LinearLayout.LayoutParams) textCtrl.getLayoutParams();
-        l.weight = b;
+        l.height = a;
         textCtrl.setLayoutParams(l);
-        l = (LinearLayout.LayoutParams) imgCtrl.getLayoutParams();
-        l.weight = a;
-        imgCtrl.setLayoutParams(l);
     }
 
     public void setActive(boolean active) {
