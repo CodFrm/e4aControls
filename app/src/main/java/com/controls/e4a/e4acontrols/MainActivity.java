@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.math.BigDecimal;
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.qq_bottom:
                 Intent intent = new Intent(this, QQBottomPage.class);
                 startActivity(intent);
+                break;
+            case R.id.math_test:
+                break;
         }
     }
 }

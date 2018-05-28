@@ -20,8 +20,15 @@
             android:id="@+id/qq_bottom"
             android:layout_width="match_parent"
             android:layout_height="44dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:onClick="btnOnClick"
             android:text="SQLite" />
+        <Button
+            android:id="@+id/math_test"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="80dp"
+            android:onClick="btnOnClick"
+            android:text="测试" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
