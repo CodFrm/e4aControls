@@ -24,11 +24,11 @@
             android:onClick="btnOnClick"
             android:text="SQLite" />
         <Button
-            android:id="@+id/math_test"
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:layout_marginTop="80dp"
             android:onClick="btnOnClick"
-            android:text="测试" />
+            android:text="TabLayout" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

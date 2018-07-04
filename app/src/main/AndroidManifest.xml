@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".VideoSourcePage"></activity>
         <activity android:name=".QQBottomPage"></activity>
+        <activity android:name=".TabLayoutPage"></activity>
     </application>
 
 </manifest>
